@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Senhas Fortes</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        p, input, span {
+            margin: 10px 0;
+        }
+
+        #requisitos {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        .requisito {
+            flex-grow: 1;
+        }
+
+        #medidorPoder {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="contador">05:00</p>
+
+    <script>
+        let segundosRestantes = 300; // 5 minutos em segundos
+
+        function atualizarContador() {
+            let minutos = Math.floor(segundosRestantes / 60);
+            let segundos = segundosRestantes % 60;
+
+            // Adiciona um zero à esquerda se for menor que 10
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+            segundos = segundos < 10 ? '0' + segundos : segundos;
+
+            document.getElementById('contador').innerText = minutos + ':' + segundos;
+
+            if (segundosRestantes > 0) {
+                segundosRestantes--;
+                setTimeout(atualizarContador, 1000);
+            } else {
+                document.getElementById('contador').innerText = 'Tempo Esgotado!';
+                // Adicione aqui qualquer ação adicional que deseja realizar quando o tempo se esgota
+
+                // Exemplo: Desabilitar entrada de senha
+                document.getElementById('entradaSenha').disabled = true;
+            }
+        }
+
+        // Iniciar o contador quando a página é carregada
+        window.onload = atualizarContador;
+    </script>
+
+    <p>Insira sua senha em 5 minutos</p>
+    <input type="password" id="entradaSenha" placeholder="Digite sua senha">
+    
+    <div id="medidorPoder"></div>
+
+    <div id="requisitos">
+        <div id="requisitoComprimento" class="requisito">Comprimento</div>
+        <div id="requisitoMinuscula" class="requisito">Letra minúscula</div>
+        <div id="requisitoMaiuscula" class="requisito">Letra maiúscula</div>
+        <div id="requisitoNumero" class="requisito">Número</div>
+        <div id="requisitoSimbolo" class="requisito">Símbolo</div>
+    </div>
+
+    <div id="textoPoder"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

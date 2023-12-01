@@ -1,0 +1,121 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#entradaSenha {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 2px solid #ff4444;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+}
+
+#mostrarSenha {
+    color: #ff4444;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px; /* Adicionado para espaçamento entre a senha e os botões */
+}
+
+#medidorPoder {
+    width: 200px;
+    height: 20px;
+    background-color: #ff4444;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#requisitos {
+    display: flex;
+    flex-direction: column; /* Alterado para empilhar verticalmente */
+    align-items: center; /* Centralizado os requisitos */
+    margin-bottom: 20px;
+}
+
+.requisito {
+    padding: 5px;
+    border: 2px solid #ff4444;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px 0; /* Adicionado espaçamento entre os requisitos */
+}
+
+#textoPoder {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Adicionando um toque assustador */
+body::before {
+    content: '';
+    background: url('https://i.imgur.com/Sc6Ib2A.jpg');
+    background-size: cover;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+#entradaSenha {
+    margin: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#medidorPoder {
+    margin-top: 10px;
+    height: 20px;
+    width: 0;
+    background-color: gray;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+#requisitos {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.requisito {
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.vermelho {
+    color: red;
+    transition: color 0.3s;
+}
+
+.verde {
+    color: green;
+    transition: color 0.3s;
+}
+
+#textoPoder {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#mostrarSenha {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4285F4;
+  }
